@@ -1,7 +1,8 @@
 function Person(age) {
+    var _this = this;
     this.age = age;
     this.growOld = function () {
-        this.age++;
+        _this.age++;
     };
 }
 var person = new Person(1);

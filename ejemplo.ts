@@ -1,6 +1,6 @@
 function Person(age){
     this.age = age
-    this.growOld=function(){
+    this.growOld=()=>{
         this.age++;
     }
 }
