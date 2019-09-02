@@ -1,12 +1,18 @@
-function iReturnPromiseAfter1Second() {
-    return new Promise(function (resolve) {
-        setTimeout(function () { return resolve("Hello world!"); }, 1000);
-    });
-}
-Promise.resolve(123)
-    .then(function (res) {
-    return iReturnPromiseAfter1Second();
+loadJSONAsync('good.json')
+    .then(function (val) { console.log(val); })["catch"](function (err) {
+    console.log('good.json error', err.message);
 })
-    .then(function (res) {
-    console.log(res);
+    // non-existent json file
+    .then(function () {
+    return loadJSONAsync('absent.json');
+})
+    .then(function (val) { console.log(val); })["catch"](function (err) {
+    console.log('absent.json error', err.message);
+})
+    // invalid json file
+    .then(function () {
+    return loadJSONAsync('bad.json');
+})
+    .then(function (val) { console.log(val); })["catch"](function (err) {
+    console.log('bad.json error', err.message);
 });
