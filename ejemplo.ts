@@ -1,8 +1,9 @@
 const promise = new Promise((resolve, reject) => {
-    resolve(123);
+    reject(new Error("Algo malo a pasado"));
     });
+
     promise.then((res) => {
-    console.log('I get called:', res === 123);
     });
     promise.catch((err) => {
+    console.log('Tengo una llamada: ', err.message);
 });
