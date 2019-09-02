@@ -1,13 +1,17 @@
-function* generator() {
-    try {
-    yield 'foo';
-    throw Error("Test");
+function getFirstName() {
+    setTimeout(function(){
+    gen.next('alex')
+    }, 1000);
     }
-    catch(err) {
-    console.log(err.message);
+    function getSecondName() {
+    setTimeout(function(){
+    gen.next('perry')
+    }, 1000);
     }
+    function *sayHello() {
+    var a = yield getFirstName();
+    var b = yield getSecondName();
+    console.log(a, b); 
     }
-    var iterator = generator();
-    
-    var foo = iterator.next();
-    console.log(foo.value);
+    var gen = sayHello();
+    gen.next();
