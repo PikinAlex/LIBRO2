@@ -1,8 +1,13 @@
-var promise = new Promise(function (resolve, reject) {
-    reject(new Error("Algo malo a pasado"));
-});
-promise.then(function (res) {
-});
-promise["catch"](function (err) {
-    console.log('Tengo una llamada: ', err.message);
+Promise.resolve(123)
+    .then(function (res) {
+    console.log(res);
+    return 456;
+})
+    .then(function (res) {
+    console.log(res);
+    return Promise.resolve(123);
+})
+    .then(function (res) {
+    console.log(res);
+    return Promise.resolve(123);
 });
