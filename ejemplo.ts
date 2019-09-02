@@ -1,6 +1,8 @@
-function rest(first, second, ...allOthers){
-    console.log(allOthers);
-}
-
-rest('foo','bar');
-rest('foo','bar','bas','qux');
+const promise = new Promise((resolve, reject) => {
+    resolve(123);
+    });
+    promise.then((res) => {
+    console.log('I get called:', res === 123);
+    });
+    promise.catch((err) => {
+});
