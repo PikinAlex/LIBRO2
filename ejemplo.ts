@@ -1,10 +1,13 @@
-function* logGenerator() {
-    console.log(yield);
-    console.log(yield);
-    console.log(yield);
+function* generator() {
+    try {
+    yield 'foo';
+    throw Error("Test");
     }
-    var gen = logGenerator();
-    gen.next();
-    gen.next('pretzel');
-    gen.next('california');
-    gen.next('mayonnaise');
+    catch(err) {
+    console.log(err.message);
+    }
+    }
+    var iterator = generator();
+    
+    var foo = iterator.next();
+    console.log(foo.value);

@@ -25,29 +25,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function logGenerator() {
-    var _a, _b, _c, _d, _e, _f;
-    return __generator(this, function (_g) {
-        switch (_g.label) {
+function generator() {
+    var err_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _b = (_a = console).log;
-                return [4 /*yield*/];
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, 'foo'];
             case 1:
-                _b.apply(_a, [_g.sent()]);
-                _d = (_c = console).log;
-                return [4 /*yield*/];
+                _a.sent();
+                throw Error("Test");
             case 2:
-                _d.apply(_c, [_g.sent()]);
-                _f = (_e = console).log;
-                return [4 /*yield*/];
-            case 3:
-                _f.apply(_e, [_g.sent()]);
-                return [2 /*return*/];
+                err_1 = _a.sent();
+                console.log(err_1.message);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }
-var gen = logGenerator();
-gen.next();
-gen.next('pretzel');
-gen.next('california');
-gen.next('mayonnaise');
+var iterator = generator();
+var foo = iterator.next();
+console.log(foo.value);
