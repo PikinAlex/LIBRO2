@@ -1,26 +1,34 @@
-class Point {
-    x: number;
-    y: number;
-    constructor(x: number, y: number) {
-    this.x = x;
-    this.y = y;
-    }
-    add(point: Point) {
-    return new Point(this.x + point.x, this.y + point.y);
+class Animal {
+    name: string;
+    constructor(theName: string) { this.name = theName; }
+    move(distanceInMeters: number = 0) {
+    console.log(`${this.name} moved ${distanceInMeters}m.`);
     }
     }
-    
-    class Point3D extends Point {
-    z: number;
-    constructor(x: number, y: number, z: number) {
-    super(x, y);
-    this.z = z;
-    }
-    
-    add(point: Point3D) {
-    
-    var point2D = super.add(point);
-    
-    return new Point3D(point2D.x, point2D.y, this.z + point.z);
+    class Snake extends Animal {
+    constructor(name: string) { super(name); }
+    move(distanceInMeters = 5) {
+    console.log("Slithering...");
+    super.move(distanceInMeters);
     }
     }
+    class Rhino extends Animal {
+    constructor(name: string) { super(name); }
+    move(distanceInMeters = 10) {
+    console.log("Slithering...");
+    super.move(distanceInMeters);
+    }
+    }
+    class Elephant extends Animal {
+    constructor(name: string) { super(name); }
+    move(distanceInMeters = 20) {
+    console.log("Slithering...");
+
+    super.move(distanceInMeters);
+}
+}
+
+let array : Animal[] = [ new Rhino('Rinocerator'), new Snake("Serpentina"), new Elephant("Elefanton") ];
+let ej2 = {Rhino: new Rhino('Rinocerator'), Snake: new Snake("Serpentina"), Elephant:
+new Elephant("Elefanton")};
+console.log(array);
