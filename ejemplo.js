@@ -18,25 +18,4 @@ var Activatable = /** @class */ (function () {
     };
     return Activatable;
 }());
-var SmartObject = /** @class */ (function () {
-    function SmartObject() {
-        var _this = this;
-        this.isDisposed = false;
-        this.isActive = false;
-        setInterval(function () { return console.log(_this.isActive + " : " + _this.isDisposed); }, 500);
-    }
-    SmartObject.prototype.interact = function () {
-        this.activate();
-    };
-    return SmartObject;
-}());
-applyMixins(SmartObject, [Disposable, Activatable]);
-var smartObj = new SmartObject();
-setTimeout(function () { return smartObj.interact(); }, 1000);
-function applyMixins(derivedCtor, baseCtors) {
-    baseCtors.forEach(function (baseCtor) {
-        Object.getOwnPropertyNames(baseCtor.prototype).forEach(function (name) {
-            derivedCtor.prototype[name] = baseCtor.prototype[name];
-        });
-    });
-}
+;
