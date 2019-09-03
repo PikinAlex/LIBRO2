@@ -13,8 +13,8 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var Base = /** @class */ (function () {
     function Base() {
+        this.log = function () { console.log('hello world'); };
     }
-    Base.prototype.log = function () { console.log('hello world'); };
     return Base;
 }());
 var Child = /** @class */ (function (_super) {
@@ -22,7 +22,7 @@ var Child = /** @class */ (function (_super) {
     function Child() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Child.prototype.log = function () { _super.prototype.log.call(this); };
+    Child.prototype.logWorld = function () { this.log(); };
     ;
     return Child;
 }(Base));

@@ -1,6 +1,7 @@
 class Base {
-    log() { console.log('hello world'); }
+    
+    log = () => { console.log('hello world'); }
     }
     class Child extends Base {
-    log() { super.log() };
+    logWorld() { this.log() };
     }
