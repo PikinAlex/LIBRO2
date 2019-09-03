@@ -1,16 +1,10 @@
-var Greeter = /** @class */ (function () {
-    function Greeter(message) {
-        this.greeting = message;
+var Something = /** @class */ (function () {
+    function Something() {
+        Something.instances++;
     }
-    Greeter.prototype.greet = function () {
-        return "Hello, " + this.greeting;
-    };
-    return Greeter;
+    Something.instances = 0;
+    return Something;
 }());
-var greeter = new Greeter("world");
-var button = document.createElement('button');
-button.textContent = "Say Hello";
-button.onclick = function () {
-    alert(greeter.greet());
-};
-document.body.appendChild(button);
+var s1 = new Something();
+var s2 = new Something();
+console.log(Something.instances);
